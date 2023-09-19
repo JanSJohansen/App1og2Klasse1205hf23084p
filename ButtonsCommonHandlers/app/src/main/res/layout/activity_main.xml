@@ -6,37 +6,30 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center_horizontal"
-    android:background="#FF88FF"
+
     tools:context=".MainActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
         android:textSize="25sp"
-        android:text="Hello World!"
+        android:text="Knapper med fælles handler"
          />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tryk Her"
-        android:id="@+id/btnTrykHer"/>
+        android:text="Knap Et"
+        android:id="@+id/btnKnapEt"/>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/btnTrykIkke"
-        android:onClick="myButtonHandler"
-        android:text="Tryk ikke Her"/>
+        android:text="Knap To"
+        android:id="@+id/btnKnapTo"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Her kommer noget...."
         android:textSize="20sp"
-        android:id="@+id/txtLabel"/>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-    </LinearLayout>
-
+        android:id="@+id/txtNoget"/>
 </LinearLayout>
