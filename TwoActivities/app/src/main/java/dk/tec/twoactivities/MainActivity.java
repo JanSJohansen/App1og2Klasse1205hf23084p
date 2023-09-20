@@ -15,6 +15,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.io.Serializable;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     Button btnMainGoToSecond;
     TextView txtMainFromSecond;
@@ -57,6 +59,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     {
         Intent intent = new Intent(this, SecondActivity.class);
         intent.putExtra(MainActivity.TEXT_FROM_CALLER, txtMainToSecond.getText().toString());
+        intent.putExtra("Tal1", 7);
+        Elev e = new Elev();
+        e.name = "Jan";
+        e.shoeNo = 42;
+        Serializable s = e;
+        Elev e2 = (Elev)s;
+
+        intent.putExtra("EnElev", e);
+        Elev e3 = (Elev)intent.getSerializableExtra("EnElev");
+
+
+
         //startActivity(intent);
         secondActivityLauncher.launch(intent);
     }
