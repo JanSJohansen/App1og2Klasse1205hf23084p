@@ -10,7 +10,7 @@ import androidx.core.content.ContextCompat;
 public class BirtheMove extends View implements Runnable
 {
     int x = 100, y = 100;
-    int xInc = 3, yInc = 3;
+    int xInc = 5, yInc = 5;
     int viewWidth, viewHeight;
     int drwH, drwW;
     Drawable drwBirthe;
@@ -19,8 +19,8 @@ public class BirtheMove extends View implements Runnable
     {
         super(context);
         drwBirthe = context.getDrawable(R.drawable.birthe_kjaer);
-        drwW = drwBirthe.getIntrinsicWidth()/4;
-        drwH = drwBirthe.getIntrinsicHeight()/4;
+        drwW = drwBirthe.getIntrinsicWidth()/2;
+        drwH = drwBirthe.getIntrinsicHeight()/2;
     }
 
     @Override
@@ -45,9 +45,13 @@ public class BirtheMove extends View implements Runnable
         {
             x += xInc;
             y += yInc;
+            if(x + drwW > viewWidth || x < 0)
+                xInc = -xInc;
+            if(y + drwH > viewHeight || y < 0)
+                yInc = -yInc;
             postInvalidate();
             try {
-                Thread.sleep(20);
+                Thread.sleep(10);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
