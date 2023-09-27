@@ -73,5 +73,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         sm.unregisterListener(this, sm.getDefaultSensor(Sensor.TYPE_ACCELEROMETER));
         sm.registerListener(mg, sm.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), 1000);
         frmLayout.addView(mg);
+        //frmLayout.addView(frameGraphics);
     }
 }
