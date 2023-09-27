@@ -39,6 +39,12 @@ public class MyGraphics extends View implements SensorEventListener
             context.updateGUI(event.values);
             float xSlope = event.values[0];
             float ySlope = event.values[1];
+            xPace += -xSlope;
+            yPace += ySlope;
+            xBall += xPace/100;
+            yBall += yPace/100;
+
+            invalidate();
         }
     }
 

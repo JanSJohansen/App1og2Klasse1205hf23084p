@@ -11,11 +11,13 @@ import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity implements SensorEventListener, View.OnClickListener {
-    LinearLayout theLayout;
+public class MainActivity extends AppCompatActivity implements SensorEventListener, View.OnClickListener
+{
+    FrameLayout frmLayout;
     TextView txtX, txtY, txtZ;
     Button btnShowGraphics;
     SensorManager sm;
@@ -25,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        theLayout = findViewById(R.id.theLayout);
+        frmLayout = findViewById(R.id.frmLayout);
         txtX = findViewById(R.id.txtX);
         txtY = findViewById(R.id.txtY);
         txtZ = findViewById(R.id.txtZ);
@@ -69,9 +71,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     {
         MyGraphics mg = new MyGraphics(this);
         sm.unregisterListener(this, sm.getDefaultSensor(Sensor.TYPE_ACCELEROMETER));
-        sm.registerListener(mg, sm.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), 10000);
-
-        theLayout.addView(mg);
-
+        sm.registerListener(mg, sm.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), 1000);
+        frmLayout.addView(mg);
     }
 }
