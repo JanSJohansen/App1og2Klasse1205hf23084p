@@ -8,7 +8,7 @@
 	<display-name>Hello World</display-name>
 	<servlet>
 		<servlet-name>MyApiServlet</servlet-name>
-		<servlet-class>dk.tec.jaj.ApiServlet</servlet-class>
+		<servlet-class>dk.tec.jaj.example2.ApiServlet</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	<servlet-mapping>

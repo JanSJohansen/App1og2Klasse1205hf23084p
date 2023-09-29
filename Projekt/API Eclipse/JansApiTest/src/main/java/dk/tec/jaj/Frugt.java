@@ -15,10 +15,9 @@ public class Frugt
 		this.name = name;
 		this.descr = descr;
 		this.weight = weight;
-		this.country = country;
-		
-		
+		this.country = country;	
 	}
+	
 	public int getId() {
 		return id;
 	}
