@@ -49,6 +49,7 @@ public class ApiServlet extends HttpServlet {
 			
 		case MatchFrugt:
 			out.write("Match på Frugt");
+			
 			break;
 			
 		case MatchNo:

@@ -56,7 +56,6 @@ public class ApiServlet extends HttpServlet {
 		Frugt f = mapper.readValue(receivedJSON, Frugt.class);
 		
 		System.out.println(f.getName());
-	
 		
 	}
 
