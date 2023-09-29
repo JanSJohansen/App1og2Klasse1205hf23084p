@@ -24,9 +24,7 @@ public class ApiServlet extends HttpServlet {
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		PrintWriter out = response.getWriter();
-		
-		
+		PrintWriter out = response.getWriter();		
 		AnalyzeRequest analyze = new AnalyzeRequest(request.getPathInfo());
 		
 		ObjectMapper mapper = new ObjectMapper();
@@ -47,6 +45,19 @@ public class ApiServlet extends HttpServlet {
 			out.write("No Match");
 			break;
 		}		
+	}
+	
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
+	{
+		String receivedJSON = request.getReader().readLine();
+		ObjectMapper mapper = new ObjectMapper();
+		
+		Frugt f = mapper.readValue(receivedJSON, Frugt.class);
+		
+		System.out.println(f.getName());
+	
+		
 	}
 
 }
