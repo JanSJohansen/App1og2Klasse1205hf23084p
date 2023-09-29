@@ -2,18 +2,31 @@ package dk.tec.jaj;
 
 public class Frugt 
 {
+	int id;
 	String name;
 	String descr;
 	int weight;
 	String country;
 	
-	public Frugt(String name, String descr, int weight, String country) {
+	public Frugt() {}
+	
+	public Frugt(int id, String name, String descr, int weight, String country) {
 		super();
 		this.name = name;
 		this.descr = descr;
 		this.weight = weight;
 		this.country = country;
+		
+		
 	}
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public String getName() {
 		return name;
 	}

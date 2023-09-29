@@ -28,19 +28,23 @@ public class ApiServlet extends HttpServlet {
 		AnalyzeRequest analyze = new AnalyzeRequest(request.getPathInfo());
 		
 		ArrayList<Frugt> frugter = new ArrayList<Frugt>();
-		frugter.add(new Frugt("Appelsin", "Den er meget sur", 12300, "New Orangeleans"));
-		frugter.add(new Frugt("Gulerøder", "Orange", 12300, "New Gulorleans"));
-		frugter.add(new Frugt("Tomat Eje", "De er meget sure", 12300, "New Tomatorleans"));
-		frugter.add(new Frugt("Birthe Rønnebær", "Hun er meget sure", 12300, "New Rønorleans"));
+		frugter.add(new Frugt(1, "Appelsin", "Den er meget sur", 12300, "New Orangeleans"));
+		frugter.add(new Frugt(2, "Gulerøder", "Orange", 12300, "New Gulorleans"));
+		frugter.add(new Frugt(3, "Tomat Eje", "De er meget sure", 12300, "New Tomatorleans"));
+		frugter.add(new Frugt(4, "Birthe Rønnebær", "Hun er meget sure", 12300, "New Rønorleans"));
 		
 		ObjectMapper mapper = new ObjectMapper();
+		DBTools db = new DBTools();
 		
 		
 		switch(analyze.getMatch())
 		{
 		case MatchFrugtId:
 			//out.write("Match på FrugtId id:" + analyze.getId());
-			out.write(mapper.writeValueAsString(frugter.get(analyze.getId())));
+			//out.write(mapper.writeValueAsString(frugter.get(analyze.getId())));
+			Frugt f = db.getFrugtById(analyze.getId());
+			out.write(mapper.writeValueAsString(f));
+			
 			break;
 			
 		case MatchFrugt:
