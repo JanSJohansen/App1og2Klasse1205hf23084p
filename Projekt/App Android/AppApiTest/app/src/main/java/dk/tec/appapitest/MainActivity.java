@@ -21,6 +21,9 @@ public class MainActivity extends AppCompatActivity
 
         txtFrugtName = findViewById(R.id.txtFrugtName);
 
+        Frugt frugt = ApiLayer.getFrugtById(1002);
+        txtFrugtName.setText(frugt.getName());
+
         IFrugtService frugtService = ServiceBuilder.buildService(IFrugtService.class);
         Call<Frugt> request = frugtService.getFrugtById(1001);
         request.enqueue(new Callback<Frugt>() {
@@ -30,14 +33,11 @@ public class MainActivity extends AppCompatActivity
                 Frugt frugt = response.body();
                 txtFrugtName.setText(frugt.getName());
             }
-
             @Override
             public void onFailure(Call<Frugt> call, Throwable t)
             {
                 txtFrugtName.setText(t.getMessage());
             }
         });
-
-
     }
 }
